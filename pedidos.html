@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Toque Silron - Panel de Pedidos</title>
+  <link rel="icon" href="./logo-altoque.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --yellow: #fcc814;
+      --orange: #eb6b20;
+      --red: #d32f2f;
+      --dark: #222222;
+      --text: #333333;
+      --white: #ffffff;
+      --head: 'Fredoka', sans-serif;
+      --body: 'Nunito', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      margin: 0;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 4px dashed var(--yellow);
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: var(--head);
+      color: var(--orange);
+      margin: 0 0 0.5rem 0;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px var(--dark);
+      text-shadow: 2px 2px 0px var(--yellow);
+    }
+
+    p.subtitle {
+      color: var(--dark);
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+      font-family: var(--head);
+    }
+
+    .dashboard {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .orders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .order-card {
+      background: var(--white);
+      border: 3px solid var(--dark);
+      border-radius: 15px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 5px 5px 0px var(--yellow);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+      padding-bottom: 0.8rem;
+    }
+
+    .order-id {
+      font-family: var(--head);
+      font-weight: bold;
+      color: var(--dark);
+      font-size: 1.2rem;
+    }
+
+    .order-time {
+      font-size: 0.8rem;
+      color: var(--text);
+      opacity: 0.8;
+      font-weight: bold;
+    }
+
+    .customer-info {
+      background: var(--bg);
+      border: 2px solid var(--dark);
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .customer-info p {
+      margin: 0.2rem 0;
+      font-weight: 600;
+    }
+
+    .customer-info p span {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .order-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      flex: 1;
+    }
+
+    .order-items li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    .item-qty {
+      font-family: var(--head);
+      color: var(--orange);
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .order-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .order-total {
+      font-family: var(--head);
+      font-size: 1.4rem;
+      color: var(--orange);
+      font-weight: bold;
+    }
+
+    .btn-complete {
+      background: var(--yellow);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: var(--head);
+      transition: all 0.2s;
+      box-shadow: 2px 2px 0px var(--dark);
+    }
+
+    .btn-complete:hover {
+      background: #4caf50;
+      color: white;
+      transform: translateY(2px);
+      box-shadow: 0 0 0 var(--dark);
+    }
+
+    .no-orders {
+      text-align: center;
+      color: var(--dark);
+      font-size: 1.5rem;
+      font-family: var(--head);
+      padding: 3rem;
+      border: 3px dashed var(--yellow);
+      border-radius: 15px;
+      background: var(--white);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .btn-clear {
+      background: transparent;
+      color: var(--red);
+      border: 2px solid var(--red);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--head);
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+
+    .btn-clear:hover {
+      background: var(--red);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gestión de Pedidos</h1>
+    <p class="subtitle">Al-Toque Silron — Territorio de lo Posible</p>
+  </header>
+
+  <div class="dashboard">
+    <div class="actions">
+      <button class="btn-clear" onclick="clearAllOrders()">Limpiar Todo el Historial</button>
+    </div>
+    <div class="orders-grid" id="ordersGrid">
+      <!-- Orders will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    function formatPrice(val) {
+      return '$' + val.toLocaleString('es-CL');
+    }
+
+    function renderOrders() {
+      const grid = document.getElementById('ordersGrid');
+      const orders = JSON.parse(localStorage.getItem('hw_orders') || '[]');
+
+      if (orders.length === 0) {
+        grid.innerHTML = '<div class="no-orders">No hay pedidos pendientes en este momento. 🌮</div>';
+        grid.style.display = 'block';
+        return;
+      }
+
+      grid.style.display = 'grid';
+      let html = '';
+
+      // Reverse to show newest first
+      orders.slice().reverse().forEach((order, reverseIndex) => {
+        // Original index in the array for deletion
+        const idx = orders.length - 1 - reverseIndex;
+
+        let itemsHtml = order.items.map(i => `
+          <li>
+            <span><span class="item-qty">${i.quantity}x</span> ${i.name} ${i.variant ? '<i>(' + i.variant + ')</i>' : ''}</span>
+          </li>
+        `).join('');
+
+        let custHtml = '';
+        if (order.customerName) {
+          custHtml = `
+            <div class="customer-info">
+              <p>👤 Cliente: <span>${order.customerName}</span></p>
+              <p>🚚 Entrega: <span>${order.deliveryType}</span></p>
+              ${order.deliveryType !== 'Retirar en Local' ? `<p>📍 Ubicación: <span>${order.addressOrTable}</span></p>` : ''}
+              <p>💳 Pago: <span>${order.paymentMethod}</span></p>
+              ${order.comments ? `<p>💬 Notas: <span>${order.comments}</span></p>` : ''}
+            </div>
+          `;
+        }
+
+        html += `
+          <div class="order-card">
+            <div class="order-header">
+              <span class="order-id">Orden #${idx + 1}</span>
+              <span class="order-time">${order.date}</span>
+            </div>
+            ${custHtml}
+            <ul class="order-items">
+              ${itemsHtml}
+            </ul>
+            <div class="order-footer">
+              <span class="order-total">${formatPrice(order.total)}</span>
+              <button class="btn-complete" onclick="completeOrder(${idx})">Completar</button>
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    function completeOrder(index) {
+      if (confirm('¿Marcar este pedido como completado? (Se eliminará de la lista)')) {
+        let orders = JSON.parse(localStorage.getItem('hw_orders') || '[]');
+        orders.splice(index, 1);
+        localStorage.setItem('hw_orders', JSON.stringify(orders));
+        renderOrders();
+      }
+    }
+
+    function clearAllOrders() {
+      if (confirm('ATENCIÓN: Esto borrará permanentemente TODOS los pedidos actuales. ¿Estás seguro?')) {
+        localStorage.removeItem('hw_orders');
+        renderOrders();
+      }
+    }
+
+    // Initialize
+    renderOrders();
+
+    // Auto-refresh every 5 seconds to catch new orders if both tabs are open
+    setInterval(renderOrders, 5000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Toque Silron — Territorio de lo Posible · Calama, Chile</title>
+  <meta name="description"
+    content="Al-Toque Silron: Empanadas, arepas, cachapas, hamburguesas, perros, completos y más. Cocina venezolana y chilena en Calama. ¡Pide por WhatsApp!">
+  <link rel="icon" href="./logo-altoque.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Fredoka:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F4F4F4;
+      --yellow: #FFC400;
+      --orange: #F37321;
+      --red: #d32f2f;
+      --dark: #000000;
+      --text: #222222;
+      --white: #ffffff;
+      --head: 'Titan One', 'Fredoka', cursive, sans-serif;
+      --body: 'Fredoka', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-weight: 500;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Organic blob background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -10vh;
+      left: -10vw;
+      width: 50vw;
+      height: 50vw;
+      background: var(--yellow);
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      z-index: -1;
+      opacity: 0.15;
+      animation: morph 15s ease-in-out infinite alternate;
+      position: fixed;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      bottom: -10vh;
+      right: -10vw;
+      width: 40vw;
+      height: 40vw;
+      background: var(--orange);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      z-index: -1;
+      opacity: 0.1;
+      animation: morph 20s ease-in-out infinite alternate;
+      position: fixed;
+    }
+
+    @keyframes morph {
+      0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
+
+      100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--dark);
+      border-radius: 4px;
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--orange);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 0.8rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--yellow);
+      border-bottom: 4px solid var(--dark);
+      box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .nav-brand-main {
+      font-family: var(--head);
+      font-size: 1.8rem;
+      color: var(--yellow);
+      text-shadow: -2px -2px 0 var(--dark), 2px -2px 0 var(--dark), -2px 2px 0 var(--dark), 2px 2px 0 var(--dark), 4px 4px 0 var(--orange);
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+
+    .nav-brand-sub {
+      font-family: var(--head);
+      font-size: 0.8rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-family: var(--head);
+      text-transform: uppercase;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      text-shadow: -2px -2px 0 var(--dark), 2px -2px 0 var(--dark), -2px 2px 0 var(--dark), 2px 2px 0 var(--dark);
+    }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      font-family: var(--head);
+      font-size: 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .nav-cta:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--dark);
+      background: #FF9E3D;
+      color: var(--dark);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: var(--dark);
+      border-radius: 4px;
+      border: 1px solid var(--bg);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-emblem {
+      width: 400px;
+      max-width: 90vw;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-emblem img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* ANNOUNCE */
+    .announce {
+      background: var(--dark);
+      color: var(--yellow);
+      font-family: var(--head);
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      border-bottom: 4px solid var(--orange);
+    }
+
+    /* SECTION COMMONS */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-pad {
+      padding: 5rem 0;
+    }
+
+    .sec-title {
+      font-family: var(--head);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      color: var(--yellow);
+      text-align: center;
+      margin-bottom: 1rem;
+      text-shadow: -3px -3px 0 var(--dark), 3px -3px 0 var(--dark), -3px 3px 0 var(--dark), 3px 3px 0 var(--dark), 6px 6px 0 var(--orange);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .sec-subtitle {
+      text-align: center;
+      color: var(--dark);
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 700;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+      border-top: 6px solid var(--dark);
+      border-bottom: 6px solid var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .about-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .about-text p strong {
+      color: var(--orange);
+      font-family: var(--head);
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      border: 5px solid var(--dark);
+      overflow: hidden;
+      box-shadow: 10px 10px 0 var(--yellow);
+      transform: rotate(-3deg);
+      transition: transform 0.2s ease;
+      background: var(--yellow);
+      padding: 10px;
+    }
+
+    .about-image-wrapper:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 15px 15px 0 var(--orange);
+    }
+
+    .about-image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      border: 3px solid var(--dark);
+    }
+
+    .about-stats {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      background: var(--white);
+      border: 4px solid var(--dark);
+      padding: 2rem 1rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 6px 6px 0 var(--orange);
+      transition: transform 0.2s;
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 11px 0 var(--yellow);
+    }
+
+    .stat-n {
+      font-family: var(--head);
+      font-size: 3rem;
+      color: var(--yellow);
+      text-shadow: -2px -2px 0 var(--dark), 2px -2px 0 var(--dark), -2px 2px 0 var(--dark), 2px 2px 0 var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-l {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      font-family: var(--head);
+    }
+
+    /* SPECIALTIES */
+    .specialties {
+      background: var(--bg);
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .spec-card {
+      background: var(--yellow);
+      border: 4px solid var(--dark);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 8px 8px 0 var(--dark);
+      transition: transform 0.2s ease;
+    }
+
+    .spec-card:nth-child(even) {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .spec-card:nth-child(even) .spec-name {
+      color: var(--white);
+      text-shadow: -2px -2px 0 var(--dark), 2px -2px 0 var(--dark), -2px 2px 0 var(--dark), 2px 2px 0 var(--dark);
+    }
+
+    .spec-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 var(--dark);
+    }
+
+    .spec-emoji {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--dark);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spec-name {
+      font-family: var(--head);
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .spec-desc {
+      font-size: 1rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    /* MENU */
+    .menu-sec {
+      background: var(--white);
+      border-top: 6px solid var(--dark);
+      position: relative;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border: 3px solid var(--dark);
+      border-radius: 12px;
+      padding: 1.2rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: all 0.1s;
+    }
+
+    .cat-card:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--dark);
+      background: var(--yellow);
+    }
+
+    .cat-card.active {
+      background: var(--orange);
+      color: var(--white);
+      transform: translate(4px, 4px);
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .cat-card.active .cat-name {
+      color: var(--white);
+    }
+
+    .cat-emoji {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 0.5rem auto;
+      border: 2px solid var(--dark);
+    }
+
+    .cat-name {
+      font-family: var(--head);
+      font-size: 1rem;
+      color: var(--dark);
+      text-transform: uppercase;
+    }
+
+    /* MENU TABS */
+    .menu-details-wrapper {
+      background: var(--bg);
+      border: 5px solid var(--dark);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 10px 10px 0 var(--yellow);
+      display: none;
+    }
+
+    .menu-details-wrapper.open {
+      display: block;
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-tab {
+      display: none;
+    }
+
+    .menu-tab.active {
+      display: block;
+    }
+
+    .tab-title {
+      font-family: var(--head);
+      font-size: 3rem;
+      color: var(--yellow);
+      text-shadow: -2px -2px 0 var(--dark), 2px -2px 0 var(--dark), -2px 2px 0 var(--dark), 2px 2px 0 var(--dark), 5px 5px 0 var(--orange);
+      text-align: center;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .menu-subcategory {
+      grid-column: 1 / -1;
+      font-family: var(--head);
+      font-size: 1.8rem;
+      color: var(--orange);
+      padding: 0.5rem 1rem;
+      background: var(--dark);
+      border-radius: 8px;
+      margin: 2rem 0 1rem;
+      text-transform: uppercase;
+      display: inline-block;
+      transform: rotate(-1deg);
+      box-shadow: 4px 4px 0 var(--yellow);
+    }
+
+    .menu-items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 3px solid var(--dark);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .menu-item::after {
+      content: '★';
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      font-size: 2rem;
+      color: var(--yellow);
+      text-shadow: -1px -1px 0 var(--dark), 1px -1px 0 var(--dark), -1px 1px 0 var(--dark), 1px 1px 0 var(--dark);
+      transform: rotate(-15deg);
+    }
+
+    .menu-item-info {
+      flex: 1;
+    }
+
+    .menu-item-name {
+      font-family: var(--head);
+      font-size: 1.4rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .menu-item-desc {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.3;
+      margin-top: 0.6rem;
+      font-weight: 600;
+    }
+
+    .menu-item-variants {
+      margin-top: 1rem;
+      border-top: 3px dotted var(--orange);
+      padding-top: 1rem;
+    }
+
+    .menu-variant {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .variant-price {
+      font-family: var(--head);
+      font-size: 1.5rem;
+      color: var(--orange);
+      text-shadow: 1px 1px 0 var(--dark);
+    }
+
+    .btn-add {
+      background: var(--yellow);
+      color: var(--dark);
+      border: 3px solid var(--dark);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      font-family: var(--head);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 0 var(--dark);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .btn-add:hover {
+      background: var(--orange);
+      color: var(--white);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--dark);
+    }
+
+    /* CART UI */
+    .cart-btn-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--yellow);
+      color: var(--dark);
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 6px 6px 0 var(--dark);
+      border: 4px solid var(--dark);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+
+    .cart-btn-float:hover {
+      transform: scale(1.1) rotate(10deg);
+      background: var(--orange);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--red);
+      color: white;
+      font-family: var(--head);
+      font-size: 1rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--dark);
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 400px;
+      max-width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease-out;
+      border-left: 6px solid var(--dark);
+    }
+
+    .cart-sidebar.open {
+      right: 0;
+      box-shadow: -20px 0 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .cart-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 4px solid var(--dark);
+      background: var(--yellow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-family: var(--head);
+      color: var(--dark);
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+
+    .btn-close {
+      background: var(--white);
+      border: 3px solid var(--dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-family: var(--head);
+      box-shadow: 3px 3px 0 var(--dark);
+      transition: transform 0.1s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-close:hover {
+      background: var(--orange);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--dark);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item-title {
+      font-family: var(--head);
+      font-size: 1.1rem;
+      color: var(--dark);
+      text-transform: uppercase;
+    }
+
+    .cart-item-price {
+      color: var(--orange);
+      font-family: var(--head);
+      font-size: 1.2rem;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cart-item-controls button {
+      background: var(--yellow);
+      border: 2px solid var(--dark);
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--head);
+      color: var(--dark);
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .cart-item-controls button:hover {
+      background: var(--orange);
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 4px solid var(--dark);
+      background: var(--white);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.8rem;
+      font-family: var(--head);
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: #25D366;
+      color: var(--dark);
+      border: 4px solid var(--dark);
+      border-radius: 16px;
+      font-family: var(--head);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 5px 5px 0 var(--dark);
+      transition: transform 0.1s;
+      text-transform: uppercase;
+    }
+
+    .checkout-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .checkout-local-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: var(--orange);
+      color: var(--white);
+      border: 4px solid var(--dark);
+      border-radius: 16px;
+      font-family: var(--head);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 5px 5px 0 var(--dark);
+      transition: transform 0.1s;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .checkout-local-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 var(--dark);
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    /* CHECKOUT MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .checkout-modal {
+      background: var(--bg);
+      width: 100%;
+      max-width: 500px;
+      border: 6px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 10px 10px 0 var(--yellow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background: var(--yellow);
+      padding: 1.5rem;
+      border-bottom: 4px solid var(--dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-family: var(--head);
+      font-size: 1.8rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .contornos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .contorno-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      padding: 0.8rem;
+      border: 3px solid var(--dark);
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--head);
+      font-size: 1.1rem;
+      color: var(--dark);
+      transition: all 0.2s;
+    }
+
+    .contorno-item:hover {
+      border-color: var(--orange);
+    }
+
+    .contorno-item.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .contorno-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      accent-color: var(--orange);
+    }
+
+    background: var(--yellow);
+    padding: 1.5rem;
+    border-bottom: 4px solid var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .modal-header h3 {
+      font-family: var(--head);
+      font-size: 1.8rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-family: var(--head);
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem;
+      border: 3px solid var(--dark);
+      border-radius: 10px;
+      font-family: var(--body);
+      font-size: 1rem;
+      font-weight: 600;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+    }
+
+    /* LOCATION */
+    .loc-sec {
+      background: var(--bg);
+      border-top: 6px solid var(--dark);
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .loc-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .loc-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--white);
+      border: 3px solid var(--dark);
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .loc-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--yellow);
+      border: 3px solid var(--dark);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      flex-shrink: 0;
+      box-shadow: 3px 3px 0 var(--dark);
+      transform: rotate(-5deg);
+    }
+
+    .loc-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke-width: 3px;
+    }
+
+    .loc-text h4 {
+      font-family: var(--head);
+      color: var(--orange);
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    .loc-text p {
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .loc-text a {
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .loc-text a:hover {
+      color: var(--orange);
+    }
+
+    .map-wrap {
+      border: 5px solid var(--dark);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 400px;
+      box-shadow: 10px 10px 0 var(--yellow);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+      text-align: center;
+      border-top: 8px solid var(--orange);
+    }
+
+    .footer-logo {
+      font-family: var(--head);
+      font-size: 2.5rem;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 0 var(--orange);
+    }
+
+    .footer-logo span {
+      color: var(--white);
+      display: block;
+      font-size: 1.2rem;
+      text-shadow: none;
+      margin-top: 0.5rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .footer-nav a {
+      color: var(--yellow);
+      text-decoration: none;
+      font-family: var(--head);
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-nav a:hover {
+      color: var(--orange);
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1rem;
+      margin-top: 2rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--yellow);
+        padding: 1.5rem;
+        gap: 1.5rem;
+        text-align: center;
+        border-bottom: 4px solid var(--dark);
+        box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .loc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-emblem {
+        width: 280px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu-details-wrapper {
+        padding: 1.5rem;
+      }
+
+      .tab-title {
+        font-size: 2rem;
+      }
+
+      .menu-items-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .sec-title {
+        font-size: 2rem;
+      }
+
+      .stat-n {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav-brand-sub {
+        display: none;
+      }
+
+      .nav-cta-text {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 0;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        justify-content: center;
+      }
+
+      .nav-cta svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-items-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-emblem {
+        width: 220px;
+      }
+
+      .cat-card {
+        padding: 0.8rem 0.2rem;
+      }
+
+      .cat-emoji {
+        width: 40px;
+        height: 40px;
+      }
+
+      .cat-name {
+        font-size: 0.8rem;
+      }
+
+      .menu-details-wrapper {
+        padding: 1rem;
+      }
+    }
+  </style>
+
+  <style>
+    .cart-btn-float, .cart-sidebar, .checkout-modal-overlay { display: none !important; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="nav">
+    <a class="nav-brand" href="#home">
+      <span class="nav-brand-main">Al-Toque Silron</span>
+      <span class="nav-brand-sub">Territorio de lo Posible</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#specialties">Especialidades</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#location">Ubicación</a></li>
+    </ul>
+    <a href="https://wa.me/56926181089" class="nav-cta" target="_blank">
+      <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+      <span class="nav-cta-text">WhatsApp</span>
+    </a>
+    <div class="hamburger" id="hamburger" aria-label="Menú" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <!-- ── HERO ── -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-emblem" aria-hidden="true">
+        <img src="./logo-altoque.png" alt="Al-Toque Silron Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ANNOUNCE ── -->
+  <div class="announce">
+    <p>📍 &nbsp; Almirante J. Latorre 47, Ex-Finca San Juan, Calama &nbsp;·&nbsp; Chile &nbsp;·&nbsp; ¡Llámanos o escríbenos por WhatsApp!
+    </p>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <h2 class="sec-title">Sabor sin fronteras</h2>
+      <p class="sec-subtitle">Fusionamos lo mejor de la tradición de la gastronomia latino caribeña con el paladar
+        chileno en el corazón de calama</p>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>Desde nuestras <strong>arepas rellenas</strong> hasta los clásicos <strong>churrascos chilenos</strong>,
+            cada plato se prepara al momento — <em>al toque</em> — garantizando una explosión de sabor inigualable.</p>
+          <p>Utilizamos ingredientes frescos y el sazón que nos identifica. Somos el territorio de lo posible: donde los
+            sabores latinos caribeños se encuentran en un solo lugar ven y disfrútalos
+          </p>
+        </div>
+        <div class="about-image-wrapper">
+          <video src="img/video.mp4" autoplay muted loop playsinline
+            style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 600px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);"></video>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-n">100+</div>
+            <div class="stat-l">Platos Únicos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">25+</div>
+            <div class="stat-l">Tipos de Arepas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">1</div>
+            <div class="stat-l">Gran Experiencia</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">100%</div>
+            <div class="stat-l">Sabor Casero</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SPECIALTIES ── -->
+  <section class="specialties section-pad" id="specialties">
+    <div class="container">
+      <h2 class="sec-title">Nuestras Especialidades</h2>
+      <p class="sec-subtitle">Lo que nos define y nos hace únicos.</p>
+      <div class="spec-grid">
+        <div class="spec-card r d1" onclick="openMenuTab('arepas')" style="cursor: pointer;">
+          <img src="img/img_arepas.png" class="spec-emoji" alt="Arepas">
+          <div class="spec-name">Arepas</div>
+          <p class="spec-desc">+25 variedades: Reina Pepiada, Pabellón, Full Silron y más.</p>
+        </div>
+        <div class="spec-card r d2" onclick="openMenuTab('empanadas')" style="cursor: pointer;">
+          <img src="img/img_empanadas.png" class="spec-emoji" alt="Empanadas y Pastelitos">
+          <div class="spec-name">Empanadas y Pastelitos</div>
+          <p class="spec-desc">Tradicionales, de la casa y operadas.</p>
+        </div>
+        <div class="spec-card r d3" onclick="openMenuTab('cachapas')" style="cursor: pointer;">
+          <img src="img/img_cachapas.png" class="spec-emoji" alt="Cachapas">
+          <div class="spec-name">Cachapas</div>
+          <p class="spec-desc">Desde la clásica hasta la Full Silron con todas las carnes.</p>
+        </div>
+        <div class="spec-card r d4" onclick="openMenuTab('hamburguesas')" style="cursor: pointer;">
+          <img src="img/img_hamburguesas.png" class="spec-emoji" alt="Hamburguesas">
+          <div class="spec-name">Hamburguesas</div>
+          <p class="spec-desc">Tradicionales y especiales: Bacon Silron, Colombiana, Rueda de Camión, Llanera.</p>
+        </div>
+        <div class="spec-card r d5" onclick="openMenuTab('jugos')" style="cursor: pointer;">
+          <img src="img/img_chicha.png" class="spec-emoji" alt="Chicha Venezolana">
+          <div class="spec-name">Chicha Venezolana</div>
+          <p class="spec-desc">Cremosa auténtica chicha Silron <strong style="text-decoration: underline; font-weight: 900;">NO</strong> contiene alcohol.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MENU ── -->
+  <section class="menu-sec section-pad" id="menu">
+    <div class="container">
+      <h2 class="sec-title">El Menú</h2>
+      <p class="sec-subtitle">Más de 100 opciones para todos los gustos: desde empanadas y arepas hasta hamburguesas,
+        churrascos y bebidas.</p>
+
+      <div class="menu-grid r" id="menuCatGrid">
+        <!-- Generated by JS -->
+      </div>
+
+      <!-- Tab Details Wrapper -->
+      <div class="menu-details-wrapper" id="menuDetails">
+        <!-- Tabs generated by JS -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ── LOCATION ── -->
+  <section class="loc-sec section-pad" id="location">
+    <div class="container">
+      <h2 class="sec-title">Visítanos en Calama</h2>
+      <p class="sec-subtitle">te esperamos para que disfrutes de la mejor atención, servicio y experiencia de nuestra
+        gastronomía.</p>
+
+      <div class="loc-grid">
+        <div class="loc-info">
+
+          <div class="loc-card">
+            <div class="loc-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div class="loc-text">
+              <h4>Dirección</h4>
+              <p><a href="https://maps.app.goo.gl/qefvVG8bmemF3jnXA?g_st=ic" target="_blank">Almirante J. Latorre 47, Ex-Finca San Juan, Calama, Chile</a></p>
+            </div>
+          </div>
+
+          <div class="loc-card">
+            <div class="loc-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z">
+                </path>
+              </svg>
+            </div>
+            <div class="loc-text">
+              <h4>Horarios</h4>
+              <p>Lunes a Jueves: 8:00 am – 1:00 am<br>Viernes a Domingo: 8:00 am – 2:00 am</p>
+          <div class="loc-card">
+            <div class="loc-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                </path>
+              </svg>
+            </div>
+            <div class="loc-text">
+              <h4>WhatsApp & Reservas</h4>
+              <p><a href="https://wa.me/56926181089" target="_blank">+56 9 2618 1089</a></p>
+            </div>
+          </div>
+
+          <div class="loc-card">
+            <div class="loc-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg>
+            </div>
+            <div class="loc-text">
+              <h4>Instagram</h4>
+              <p><a href="https://instagram.com/al_toquesilron" target="_blank">@al_toquesilron</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+          <div class="map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=Altoque%20silron%20-%20Almte.%20J.%20Latorre%2047,%20Calama,%20Antofagasta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="./img/logo-transparente-final.png" alt="Al-Toque Silron" style="max-height: 300px; width: auto;"></div>
+        <ul class="footer-nav">
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#specialties">Especialidades</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#location">Ubicación</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://instagram.com/al_toquesilron" class="soc-btn" target="_blank" aria-label="Instagram">📸</a>
+          <a href="https://wa.me/56926181089" class="soc-btn" target="_blank" aria-label="WhatsApp">💬</a>
+          <a href="tel:+56926181089" class="soc-btn" aria-label="Teléfono">📞</a>
+        </div>
+        <p class="footer-copy">© 2024 Al-Toque Silron · Calama, Chile · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── CART ── -->
+  <button class="cart-btn-float" id="cartBtn" onclick="toggleCart()">
+    🛒 <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Tu Pedido</h3>
+      <button class="btn-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="checkout-btn" onclick="openCheckoutModal('whatsapp')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Enviar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="checkout-modal">
+      <div class="modal-header">
+        <h3>Completa tu Pedido</h3>
+        <button class="btn-close" onclick="closeCheckoutModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="custName">Tu Nombre</label>
+          <input type="text" id="custName" placeholder="Ej. Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label for="custDeliveryType">Tipo de Entrega</label>
+          <select id="custDeliveryType" onchange="handleDeliveryChange()">
+            <option value="Dirección">Delivery (Dirección)</option>
+            <option value="Retirar en Local">Retirar en Local</option>
+            <option value="Consumo en Local">Consumo en Local</option>
+          </select>
+        </div>
+        <div class="form-group" id="addressGroup">
+          <label for="custAddress">Dirección</label>
+          <input type="text" id="custAddress" placeholder="Tu dirección para el delivery">
+        </div>
+        <div class="form-group" id="tableGroup" style="display: none;">
+          <label for="custTable">Número de Mesa</label>
+          <input type="text" id="custTable" placeholder="Ej. 4">
+        </div>
+        <div class="form-group">
+          <label for="custPayment">Método de Pago</label>
+          <select id="custPayment">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Débito">Débito</option>
+            <option value="Transferencia">Transferencia</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="custComments">Comentarios (Opcional)</label>
+          <textarea id="custComments" rows="2" placeholder="Ej. Hamburguesa sin cebolla, bebida normal..."></textarea>
+        </div>
+        <button class="checkout-local-btn" style="margin-top: 1rem;" onclick="confirmCheckout()">Confirmar
+          Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CONTORNOS -->
+  <div class="modal-overlay" id="contornosModalOverlay">
+    <div class="checkout-modal">
+      <div class="modal-header">
+        <h3 id="contornosModalTitle">Elige Contornos</h3>
+        <button class="btn-close" onclick="closeContornosModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="contornosModalSubtitle" style="font-family: var(--head); font-size: 1.1rem; margin-bottom: 0;">Puedes
+          elegir hasta 1 contorno.</p>
+        <div class="contornos-grid" id="contornosGrid">
+          <!-- Contornos generados por JS -->
+        </div>
+        <button class="checkout-local-btn" style="margin-top: 0.5rem;" onclick="confirmContornos()">Añadir al
+          Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════
+    // MENU DATA — All items from the Al-Toque Silron PDF
+    // ═══════════════════════════════════════════════════
+    const menuCategories = [
+      {
+        id: 'empanadas',
+        emoji: '🥟',
+        name: 'Emp. y Pastelitos',
+        title: 'Empanadas y Pastelitos',
+        image: 'img/img_empanadas.jpg',
+        subcategories: [
+          {
+            name: 'Tradicionales',
+            items: [
+              { name: 'Carne Mechada', price: 2000 },
+              { name: 'Pollo Mechado', price: 2000 },
+              { name: 'Mechada Queso', price: 2000 },
+              { name: 'Molida Queso', price: 2000 },
+              { name: 'Jamón Queso', price: 2000 },
+              { name: 'Salchicha Queso', price: 2000 },
+              { name: 'Pollo Queso', price: 2000 },
+              { name: 'Queso', price: 2000 },
+            ]
+          },
+          {
+            name: 'De la Casa',
+            items: [
+              { name: 'Tajada Queso', price: 2000 },
+              { name: 'Pabellón', price: 2500 },
+              { name: 'Cordón Bleu', price: 2500 },
+              { name: 'Mechada Tajada', price: 2000 },
+              { name: 'Pernil', price: 2500 },
+              { name: 'Choclera', price: 2500 },
+              { name: 'Pastelito Andino', price: 2500 },
+              { name: 'Pastelito Papa Queso', price: 2500 },
+              { name: 'Pastelito Camarón Queso', price: 2500 },
+            ]
+          },
+          {
+            name: 'Especiales',
+            items: [
+              { name: 'Empanada Operada', desc: '5 contornos a tu elección', price: 4500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'empanadas_chilenas',
+        emoji: '🇨🇱',
+        name: 'Emp. Chilenas',
+        title: 'Empanadas Chilenas',
+        image: 'img/img_empanadas_chilenas.png',
+        subcategories: [
+          {
+            name: 'Chilenas',
+            items: [
+              { name: 'Queso Amarillo', price: 2500 },
+              { name: 'La Choclera', desc: 'Queso amarillo y choclo.', price: 3000 },
+              { name: 'Camarón Queso', price: 3500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'desayunos',
+        emoji: '🍳',
+        name: 'Desayunos',
+        title: 'Desayunos',
+        image: 'img/img_desayunos.png',
+        subcategories: [
+          {
+            name: 'Desayunos',
+            items: [
+              { name: 'Desayuno Americano', desc: 'Tocino, huevo frito, pan de molde y jugo de naranja.', price: 4000 },
+              { name: 'Omelet de Huevo', desc: 'Huevos revueltos con jamón.', price: 3000 },
+              { name: 'Desayuno Silron', desc: 'Chorizo, carne mechada, huevo y queso.', price: 4500 },
+              { name: 'Huevos Revueltos con Pan', price: 4000 },
+              { name: 'Huevo a la Paila', price: 4000 },
+              { name: 'Sándwich Tradicional', desc: 'Pan de molde con jamón, tomate, lechuga, queso y mantequilla.', price: 3500 },
+              { name: 'Desayuno Paisa', desc: 'Plátano verde o maduro con queso llanero.', price: 4500 },
+              { name: 'Pancakes Americano', desc: 'Mermelada/manjar o sirope y café con leche espumado.', price: 5000 },
+              { name: 'Pancakes a la Chilena', desc: 'Rellenos con manjar acompañado de café con leche espumado.', price: 4500 },
+              { name: 'Pancakes Silron', desc: 'Mantequilla y queso llanero acompañado con café con leche espumado.', price: 5000 },
+            ]
+          },
+          {
+            name: 'Antojitos',
+            items: [
+              { name: 'Tequeños', desc: 'Masa rellena de queso blanco.', price: 2000 },
+              { name: 'Aborrajado', desc: 'Masa rellena de plátano maduro y queso blanco.', price: 2000 },
+              { name: 'Buñuelo', desc: 'Masa de queso fresco.', price: 2000 },
+              { name: 'Sopa de Leche', desc: 'Leche, papa y huevo.', price: 3000 },
+              { name: 'Papa Rellena', desc: 'Papa rellena con pollo o carne y huevo.', price: 3000 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'arepas',
+        emoji: '🫓',
+        name: 'Arepas',
+        title: 'Arepas',
+        image: 'img/img_arepas.png',
+        subcategories: [
+          {
+            name: 'Arepas Combinadas',
+            items: [
+              { name: 'Arepa 1 Contorno', desc: 'Contornos a tu gusto.', price: 2500 },
+              { name: 'Arepa 2 Contornos', desc: 'Contornos a tu gusto.', price: 3000 },
+            ]
+          },
+          {
+            name: 'Arepas Especiales',
+            items: [
+              { name: 'La Catira', desc: 'Tomate, huevo revuelto, pollo, queso amarillo.', price: 4500 },
+              { name: 'La Pelúa', desc: 'Lechuga, tomate, carne mechada, queso amarillo.', price: 4000 },
+              { name: 'Reina Pepiada', desc: 'Pollo desmechado con mayonesa y aguacate.', price: 4000 },
+              { name: 'Costeña', desc: 'Lechuga, tomate, cebolla, atún, mayonesa.', price: 3500 },
+              { name: 'La Sifrina', desc: 'Pollo, aguacate, queso amarillo, cheddar, mayonesa.', price: 4500 },
+              { name: 'Migrante', desc: 'Repollo, tomate, chorizo frito o guisado, salchicha, queso blanco, mayo y ketchup.', price: 4500 },
+              { name: 'La Chicharronada', desc: 'Tomate, cebolla, huevo revuelto con chicharrón, queso blanco.', price: 4500 },
+
+              { name: 'Arepa de Codorniz', desc: 'Huevos de codorniz con salsa rosada, queso amarillo o blanco.', price: 4500 },
+              { name: 'La Gallinera', desc: 'Arepa con ensalada de gallina.', price: 4500 },
+              { name: 'La Rumbera', desc: 'Lechuga, pernil, aguacate, jamón, queso amarillo o blanco, salsa BBQ y verde.', price: 4500 },
+              { name: 'Pabellón', desc: 'Caraotas, tajada, carne mechada, huevo, aguacate y queso llanero.', price: 5000 },
+              { name: 'Guacamaya', desc: 'Cerdo, queso amarillo, cheddar, queso blanco, queso de mano, ketchup, mayo y mostaza.', price: 5000 },
+              { name: 'Cabimera', desc: 'Arepa frita, ketchup, mayo, mostaza, lechuga, repollo, tomate, mortadela o jamón, carne, pollo, queso de mano, papas fritas.', price: 5000 },
+              { name: 'Mixta', desc: 'Lechuga, repollo, tomate, carne, pollo, cerdo, queso blanco, queso amarillo, salsa verde y tocino.', price: 5500 },
+              { name: 'La Guariqueña', desc: 'Carne, chorizo, morcilla, aguacate, maíz en grano, queso blanco, crema de leche, salsa verde y tocino.', price: 5500 },
+              { name: 'Arepa Burger', desc: 'Lechuga, tomate, carne, huevo, queso amarillo, cheddar, queso de vaca, jamón, papas hilos, salsas de la casa.', price: 6000 },
+              { name: 'La Apureña', desc: 'Carne asada, cochino frito, chorizo, morcilla, chinchurria, queso llanero, salsa verde.', price: 6000 },
+              { name: 'Tumbarrancho', desc: 'Repollo, salsa ketchup, zanahoria, carne mechada, huevo cocido, aguacate, jamón, queso, queso rayado y queso amarillo.', price: 6000 },
+              { name: 'La Creída', desc: 'Carne, pollo, salame, tocino, queso cheddar, queso amarillo, mayo, ketchup, mostaza miel, salsas de la casa.', price: 6500 },
+              { name: 'La Musiu', desc: 'Lechuga, cebolla, repollo, carne, cerdo, tocino, salame, queso cheddar, blanco y amarillo, mostaza miel.', price: 6500 },
+              { name: 'Arepa de Huevo', desc: 'Arepa frita rellena de huevo.', price: 3000 },
+              { name: 'Full Silron', desc: 'Lechuga, tomate, carne, cerdo, pollo, carne picada, jamón, tocino, salame, huevo frito, queso frito, papas fritas, queso amarillo rallado y salsas de la casa.', price: 9000 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'cachapas',
+        emoji: '🌽',
+        name: 'Cachapas',
+        title: 'Cachapas',
+        image: 'img/img_cachapas.png',
+        subcategories: [
+          {
+            name: 'Cachapas',
+            items: [
+              { name: 'Cachapa Clásica', desc: 'Queso de mano, mantequilla y crema de leche.', price: 8000 },
+              { name: 'Cachapa La Quesúa', desc: 'Queso de mano, queso amarillo, queso llanero, mantequilla y crema de leche.', price: 9000 },
+              { name: 'Cachapa La Chilena', desc: 'Queso de mano, queso de vaca, queso gauda, palta, tomate, vianesa, choclo desgranado, mantequilla y crema de leche.', price: 14000 },
+              { name: 'Cachapa La Creída', desc: 'Queso de mano, queso llanero, queso amarillo, jamón, tocino, mantequilla y crema de leche.', price: 10000 },
+              { name: 'Cachapa Llanera', desc: 'Queso de mano, queso llanero, queso amarillo, carne, pollo, cerdo, chorizo, morcilla, mantequilla y crema de leche.', price: 15000 },
+              { name: 'Cachapa Full Silron', desc: 'Queso de mano, queso llanero, queso amarillo, carne, pollo, cerdo, jamón, tocino, chorizo, morcilla, salame, aguacate, mantequilla y crema de leche.', price: 16000 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'pepitos',
+        emoji: '🌯',
+        name: 'Pepitos',
+        title: 'Pepitos, Shawarma y Choripán',
+        image: 'img/img_pepitos.png',
+        subcategories: [
+          {
+            name: 'Pepitos',
+            items: [
+              { name: 'Pepito Sencillo', desc: 'Carne o pollo, lechuga, tomate, vianesa, huevo, salame, papas hilo, jamón, queso y salsas al gusto.', price: 12000 },
+              { name: 'Pepito Mixto', desc: 'Carne, pollo, cerdo, chorizo, lechuga, tomate, queso cheddar, vianesa, tocino, huevo, papas hilo, jamón, salame, queso y salsas al gusto.', price: 15000 },
+            ]
+          },
+          {
+            name: 'Shawarma',
+            items: [
+              { name: 'Shawarma Sencillo', desc: 'Carne o pollo, lechuga, tomate, vianesa, huevo, jamón, queso, salsa de garbanzo y salsa de sésamo.', price: 11000 },
+              { name: 'Shawarma Mixto', desc: 'Carne, pollo, lechuga, tomate, vianesa, huevo, jamón, queso, salsa de garbanzo y salsa de sésamo.', price: 15000 },
+            ]
+          },
+          {
+            name: 'Choripán',
+            items: [
+              { name: 'Choripán', desc: 'Pan, chorizo y pebre.', price: 4500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'papas',
+        emoji: '🍟',
+        name: 'Papas & Más',
+        title: 'Papas Fritas, Salchipapas y Más',
+        image: 'img/img_papas.png',
+        subcategories: [
+          {
+            name: 'Papas Fritas',
+            items: [
+              { name: 'Papas Fritas Pequeña', price: 5000 },
+              { name: 'Papas Fritas Mediana', price: 8000 },
+              { name: 'Papas Fritas Grande', price: 10000 },
+              { name: 'Papas Fritas XL', price: 15000 },
+            ]
+          },
+          {
+            name: 'Salchipapas',
+            items: [
+              { name: 'Salchipapas Pequeña', price: 6500 },
+              { name: 'Salchipapas Mediana', price: 12000 },
+              { name: 'Salchipapas Grande', price: 15000 },
+              { name: 'Salchipapas XL', price: 20000 },
+            ]
+          },
+          {
+            name: 'Salchipollo',
+            items: [
+              { name: 'Salchipollo Mediana', price: 11000 },
+              { name: 'Salchipollo Grande', price: 17000 },
+              { name: 'Salchipollo XL', price: 25000 },
+            ]
+          },
+          {
+            name: 'Pichanga',
+            items: [
+              { name: 'Pichanga Sencilla (1 proteína) Mediana', price: 18000 },
+              { name: 'Pichanga Mixta (3 proteínas) Mediana', price: 23000 },
+              { name: 'Pichanga Grande XL', price: 28000 },
+            ]
+          },
+          {
+            name: 'Chorrillana Chilena',
+            items: [
+              { name: 'Chorrillana Mediana', desc: 'Papas fritas, carne, cebolla, chorizo y huevo frito.', price: 15000 },
+              { name: 'Chorrillana Grande XL', price: 18000 },
+            ]
+          },
+          {
+            name: 'Patacón',
+            items: [
+              { name: 'Patacón Normal', desc: 'Plátano verde, lechuga, tomate, papas hilo, una proteína, jamón, huevo cocido, queso llanero, ketchup, mayo, salsa de la casa.', price: 11500 },
+              { name: 'Patacón Mixto', price: 13000 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'perros',
+        emoji: '🌭',
+        name: 'Perros',
+        title: 'Perros Calientes y Completos',
+        image: 'img/img_perros.png',
+        subcategories: [
+          {
+            name: 'Perros Tradicionales',
+            items: [
+              { name: 'Perro Sencillo', desc: 'Vianesa, mayo, ketchup, papas hilo, queso amarillo rallado, repollo y jamón acaramelado.', price: 2500 },
+              { name: 'Perro Mixto', desc: 'Vianesa, carne, jamón, tocino, repollo, papas hilo, queso rallado, huevo y salsas al gusto.', price: 5000 },
+              { name: 'Silron Especial', desc: 'Vianesa, carne, pollo, tocino, jamón, repollo, papas hilo, queso amarillo rallado, huevo y salsas al gusto.', price: 5500 },
+            ]
+          },
+          {
+            name: 'Perros Especiales',
+            items: [
+              { name: 'Choclero', desc: 'Vianesa, papas hilo, choclo, jamón, queso, repollo y salsas al gusto.', price: 4500 },
+              { name: 'Europeo', desc: 'Vianesa, tocino, salame, peperonni y queso mozzarella.', price: 5000 },
+              { name: 'Porky', desc: 'Vianesa, cebolla caramelizada, salsa de ajo, queso mozzarella y tocino.', price: 5000 },
+              { name: 'Catire', desc: 'Vianesa, carne mechada, repollo, cebolla, papas hilo, salsas, queso gouda rallado.', price: 5500 },
+              { name: 'Pabellón', desc: 'Vianesa, caraotas, tajada, carne mechada, huevo, aguacate, papas hilo y queso llanero.', price: 5500 },
+              { name: 'Creído', desc: 'Vianesa, tocino, carne, pollo, queso cheddar, queso amarillo y papas hilo.', price: 5500 },
+              { name: 'Perro Llanero', desc: 'Vianesa, pollo, carne, cerdo, chorizo, papas hilo y queso llanero.', price: 5500 },
+              { name: 'Guacamayo', desc: 'Vianesa, papas hilo, cerdo y queso de mano.', price: 4500 },
+              { name: 'Pepiado', desc: 'Vianesa, pollo mechado, mayonesa y aguacate y papas hilo.', price: 4500 },
+              { name: 'Migrante', desc: 'Vianesa, chorizo guisado, aguacate, papas hilo y queso de mano.', price: 5000 },
+              { name: 'Rumbero', desc: 'Vianesa, pernil, aguacate, tomate, queso amarillo o blanco y papas fritas.', price: 6000 },
+              { name: 'Perro Chacarero', desc: 'Vienesa, tomate, porotos verdes, ají verde, queso amarillo, tomate y papas hilo.', price: 3500 },
+              { name: 'Perro Italiano', desc: 'Vianesa, tomate, palta, queso amarillo, papas hilo, mayo.', price: 3000 },
+              { name: 'Perro Dinámico', desc: 'Vianesa, tomate, chucrut, palta, queso amarillo, papas hilo y mayo.', price: 3500 },
+            ]
+          },
+          {
+            name: 'Completos Tradicionales',
+            items: [
+              { name: 'Italiano', desc: 'Vianesa, tomate, palta y mayo.', price: 2500 },
+              { name: 'Dinámico', desc: 'Vianesa, tomate, chucrut, palta y mayo.', price: 3000 },
+              { name: 'Brass', desc: 'Vianesa, chucrut, palta y mayo.', price: 3000 },
+              { name: 'Alemán', desc: 'Vianesa, chucrut, tomate y mayo.', price: 3000 },
+              { name: 'Español', desc: 'Vianesa, tomate, queso y tocino.', price: 3000 },
+              { name: 'Vegetariano', desc: 'Chucrut, tomate y palta.', price: 3000 },
+              { name: 'Choclo Palta', desc: 'Vianesa, choclo y palta.', price: 3500 },
+              { name: 'Napolitano', desc: 'Vianesa, queso, tomate y jamón.', price: 3500 },
+              { name: 'Italiano Silron', desc: 'Vianesa, tomate, palta, tocino y mayo.', price: 3500 },
+              { name: 'Luco', desc: 'Vienesa y queso derretido.', price: 3000 },
+              { name: 'Chemilico', desc: 'Vienesa y huevos revueltos.', price: 3000 },
+              { name: 'Chacarero', desc: 'Vienesa, tomate, porotos verdes, ají verde y mayonesa.', price: 3500 },
+            ]
+          },
+          {
+            name: 'Completos de la Casa',
+            items: [
+              { name: 'Choclero', desc: 'Vianesa, tomate, palta, choclo y queso derretido.', price: 3500 },
+              { name: 'Brasileño', desc: 'Vienesa, queso derretido y palta.', price: 3000 },
+              { name: 'Gringo', desc: 'Vienesa, tomate, pepinillos, lechuga, cebolla picada y mayonesa.', price: 4000 },
+              { name: 'Suizo', desc: 'Vienesa, tomate, queso derretido y mayonesa.', price: 3500 },
+              { name: 'Turco', desc: 'Vienesa, huevo revuelto y queso derretido.', price: 3500 },
+              { name: 'A lo Pobre', desc: 'Vienesa, huevo frito, cebolla frita, palta y queso derretido.', price: 4500 },
+              { name: 'Jarpa', desc: 'Vienesa, queso derretido y jamón troceado.', price: 3500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'hamburguesas',
+        emoji: '🍔',
+        name: 'Hamburguesas',
+        title: 'Hamburguesas',
+        image: 'img/img_hamburguesas.png',
+        subcategories: [
+          {
+            name: 'Hamburguesas Tradicionales',
+            items: [
+              { name: 'Hamburguesa Sencilla', desc: 'Carne o pollo, huevo, queso amarillo, lechuga, tomate, papas hilo y salsas al gusto.', price: 7000 },
+              { name: 'Hamburguesa Americana', desc: 'Tomate, lechuga, carne, jamón, tocino, pepinillo, papas fritas, queso cheddar, amarillo y salsa barbecue.', price: 8000 },
+              { name: 'Silron Especial', desc: 'Lechuga, tomate, carne, pollo, huevo, tocino, queso cheddar, papas hilo, queso amarillo rallado y salsas al gusto.', price: 9000 },
+              { name: 'Hamburguesa Mixta', desc: 'Carne, pollo, chorizo, salame, tocino, jamón, huevo, queso cheddar, lechuga, tomate, papas hilo, queso amarillo rallado y salsas al gusto.', price: 10000 },
+              { name: 'Silron Super Especial', desc: 'Carne, pollo, cerdo, chorizo, salame, tocino, jamón, huevo, queso cheddar, lechuga, tomate, papas hilo, queso amarillo rallado y salsas al gusto.', price: 11000 },
+            ]
+          },
+          {
+            name: 'Hamburguesas Especiales',
+            items: [
+              { name: 'Combo Bacon Silron', desc: 'Promoción especial: Tocino crocante, queso fundido, doble carne, papas y bebida.', price: 10000 },
+              { name: 'Hamburguesa Rueda de Camión', desc: 'Ideal para compartir. Gigante y llena de todos los ingredientes.', price: 20000 },
+              { name: 'Crispy Silron', desc: 'Pollo apanado, cebolla caramelizada, papas hilo, tocino, queso cheddar y porción de papas fritas.', price: 8500 },
+              { name: 'Colombiana', desc: 'Carne, queso, piña en rodajas, tocino, papas hilo, salsa bbq, ketchup y mayonesa.', price: 9500 },
+              { name: 'Sifrina', desc: 'Carne, lechuga, tomate, pollo, mayonesa, papas hilo, aguacate, queso amarillo y porción de papas fritas.', price: 12000 },
+              { name: 'Llanera', desc: 'Carne, queso de mano, plátano frito, cerdo, queso blanco rayado y porción de papas fritas.', price: 12500 },
+              { name: 'La Boluda', desc: 'Pollo apanado, lechuga, tomate y mayo, queso mozzarella, palta, salsa verde y porción de papas fritas.', price: 13000 },
+              { name: 'Reina Quesuda', desc: 'Lechuga, tomate, cebolla caramelizada, queso cheddar, queso blanco, queso amarillo, queso frito, salsa ketchup, mostaza, porción de papas fritas.', price: 13000 },
+              { name: 'American Smash', desc: 'Lechuga, tomate, carne, mayo, ketchup, queso cheddar, cebolla caramelizada, salsa BBQ, jamón, huevo, salame, peperoni, tocino, porción de papas fritas.', price: 13500 },
+              { name: 'Europea', desc: 'Carne, salsa ketchup, lechuga, tomate, jamón serrano, tocino, salame, peperonni, queso mozzarella, queso amarillo y porción de papas fritas.', price: 14000 },
+              { name: 'Criolla', desc: 'Carne, lechuga, tomate, salsa de ajo, caraotas, tajada, carne mechada, huevo, aguacate, queso llanero y porción de papas fritas.', price: 14500 },
+              { name: 'Paisano Burger', desc: 'Tomate y mayo, cerdo a la plancha, jamón serrano, queso de mano, salsa de tocino y porción de papas fritas.', price: 15000 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'churrascos',
+        emoji: '🥩',
+        name: 'Churrascos',
+        title: 'Churrascos',
+        image: 'img/img_churrascos.png',
+        subcategories: [
+          {
+            name: 'Churrascos',
+            items: [
+              { name: 'Sándwich Tomate', desc: 'Carne o pollo, tomate y mayo.', price: 5000 },
+              { name: 'Solo Mayo', desc: 'Carne picada/mechada/escalopa o pollo y mayo.', price: 5500 },
+              { name: 'Sándwich Palta', desc: 'Carne o pollo, palta y mayo.', price: 5500 },
+              { name: 'Alemán', desc: 'Carne o pollo, tomate y chucrut.', price: 5500 },
+              { name: 'Chacarero', desc: 'Carne o pollo, tomate, porotos verdes, ají verde y mayo.', price: 6000 },
+              { name: 'Churrasco Solo Carne', desc: 'Solo carne (picada/mechada o escalopa).', price: 6000 },
+              { name: 'Italiano', desc: 'Carne picada/mechada/escalopa o pollo, tomate, palta y mayo.', price: 6000 },
+              { name: 'Dinámico', desc: 'Carne o pollo, tomate, palta, chucrut y mayo.', price: 6000 },
+              { name: 'Kayser', desc: 'Carne o pollo, jamón, queso y mayo.', price: 6000 },
+              { name: 'Diputado', desc: 'Carne o pollo, tocino, huevo y mayo.', price: 6000 },
+              { name: 'Churrasco Europeo', desc: 'Carne, lechuga, tomate, jamón serrano, tocino, salame, peperonni, queso mozzarella, queso amarillo.', price: 6000 },
+              { name: 'Festival', desc: 'Carne o pollo, lechuga, tomate, cebolla y mayo.', price: 6500 },
+              { name: 'Barros Luco', desc: 'Carne o pollo y queso.', price: 6500 },
+              { name: 'Barros Luco Palta', desc: 'Carne o pollo, palta y queso.', price: 6500 },
+              { name: 'Colo Colo', desc: 'Carne o pollo, cebolla frita, huevo y mayo.', price: 6500 },
+              { name: 'Americano', desc: 'Carne o pollo, queso, jamón, huevo y mayo.', price: 6500 },
+              { name: 'Suizo', desc: 'Carne o pollo, jamón, tocino, tomate y mayo.', price: 6500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'bebidas',
+        emoji: '🥤',
+        name: 'Bebidas',
+        title: 'Bebidas, Jugos, Milkshakes y Cafés',
+        image: 'img/img_bebidas.png',
+        subcategories: [
+          {
+            name: 'Jugos Naturales — $4.000',
+            items: [
+              { name: 'Jugo de Frutilla', price: 4000 },
+              { name: 'Jugo de Mango', price: 4000 },
+              { name: 'Jugo de Maracuyá', price: 4000 },
+              { name: 'Jugo de Mora', price: 4000 },
+              { name: 'Jugo de Naranja', price: 4000 },
+              { name: 'Jugo de Piña', price: 4000 },
+              { name: 'Jugo de Frambuesa', price: 4000 },
+              { name: 'Jugo de Zanahoria / 3 en 1', price: 4000 },
+              { name: 'Limonada', price: 4000 },
+              { name: 'Papelón con Limón', price: 4000 },
+              { name: 'Chicha Venezolana', price: 4000 },
+            ]
+          },
+          {
+            name: 'Batidos — $4.500',
+            items: [
+              { name: 'Batido de Frutilla', price: 4500 },
+              { name: 'Batido de Mango', price: 4500 },
+              { name: 'Batido de Maracuyá', price: 4500 },
+              { name: 'Batido de Mora', price: 4500 },
+              { name: 'Batido de Plátano', price: 4500 },
+            ]
+          },
+          {
+            name: 'Jugos Especiales — $4.000 / Batidos $4.500',
+            items: [
+              { name: 'Borojó', price: 4000 },
+              { name: 'Lulo', price: 4000 },
+              { name: 'Tomate de Árbol', price: 4000 },
+            ]
+          },
+          {
+            name: 'Proteínas Energéticas — $5.000',
+            items: [
+              { name: 'Proteína Chocolate', price: 5000 },
+              { name: 'Proteína Frutilla', price: 5000 },
+              { name: 'Proteína Plátano', price: 5000 },
+              { name: 'Proteína Vainilla', price: 5000 },
+              { name: 'Proteína Borojó', price: 5000 },
+              { name: 'Proteína Lulo', price: 5000 },
+              { name: 'Proteína Maní', price: 5000 },
+              { name: 'Proteína Almendras', price: 5000 },
+              { name: 'Proteína Café', price: 5000 },
+              { name: 'Proteína Oreo', price: 5000 },
+            ]
+          },
+          {
+            name: 'Jarras',
+            items: [
+              { name: 'Jarra de Jugo', desc: 'Mango, Maracuyá, Frutilla, Mora, Frambuesa, Piña, Naranja.', price: 9000 },
+              { name: 'Jarra de Batido', price: 10000 },
+            ]
+          },
+          {
+            name: 'Milkshakes — $5.500',
+            items: [
+              { name: 'Milkshake Frutilla', price: 5500 },
+              { name: 'Milkshake Mango', price: 5500 },
+              { name: 'Milkshake Maracuyá', price: 5500 },
+              { name: 'Milkshake Oreo', price: 5500 },
+              { name: 'Milkshake Nutella', price: 5500 },
+              { name: 'Milkshake Manjar', price: 5500 },
+              { name: 'Milkshake Banana Split', price: 5500 },
+              { name: 'Milkshake Chocolate', price: 5500 },
+              { name: 'Milkshake Cola con Pasas', price: 5500 },
+              { name: 'Milkshake Super 8', price: 5500 },
+            ]
+          },
+          {
+            name: 'Bebidas',
+            items: [
+              { name: 'Bebidas en Lata', desc: 'Coca cola, Pepsi, Sprite, Fanta, Kem, Bilz, Pap, Crunch, Limón Soda, Canada Dry.', price: 2000 },
+              { name: 'Coca Cola 1.5L', price: 3000 },
+              { name: 'Coca Cola 3.0L', price: 4000 },
+              { name: 'Maltín Polar', price: 2500 },
+              { name: 'Pony Malta', price: 2500 },
+              { name: 'Frescolita', price: 2500 },
+              { name: 'Papelón con Limón (botella)', price: 2500 },
+              { name: 'Postobón', price: 2500 },
+              { name: 'Agua Mineral', price: 1200 },
+              { name: 'Agua de Panela con Queso', price: 3000 },
+              { name: 'Bebidas Energéticas', price: 2500 },
+            ]
+          },
+          {
+            name: 'Cafés Calientes',
+            items: [
+              { name: 'Espresso', price: 1000 },
+              { name: 'Machiato', price: 1500 },
+              { name: 'Expresso con Crema', price: 1500 },
+              { name: 'Café Latte', price: 1500 },
+              { name: 'Café con Leche', price: 1500 },
+              { name: 'Latte Machiato', price: 1500 },
+              { name: 'Cappucino', price: 2000 },
+              { name: 'Cappucino Chocolate', price: 2500 },
+              { name: 'Cappucino Vainilla', price: 2500 },
+              { name: 'Moca', price: 2500 },
+              { name: 'Latte Vainilla', price: 2500 },
+              { name: 'Latte Caramelo', price: 2500 },
+              { name: 'Irlandés', price: 1500 },
+              { name: 'Panna', price: 1500 },
+              { name: 'Bombón', price: 1500 },
+              { name: 'Hawaiano', price: 1500 },
+              { name: 'Chocolate Caliente', price: 1500 },
+            ]
+          },
+          {
+            name: 'Cafés Fríos',
+            items: [
+              { name: 'Frappucino', price: 3500 },
+              { name: 'Cappucino Latte', price: 3500 },
+              { name: 'Moca Helado', price: 3500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'mojitos',
+        emoji: '🍹',
+        name: 'Mojitos',
+        title: 'Mojitos Afrodisíacos Sin Alcohol',
+        image: 'img/banner_mojitos.jpg',
+        thumb: 'img/thumb_mojitos.jpg',
+        bannerMaxHeight: '520px',
+        bannerFit: 'contain',
+        subcategories: [
+          {
+            name: 'Mojitos Afrodisíacos (Con Bebida Energizante) — $5.500',
+            items: [
+              { name: 'Mojito Explosión', desc: 'Anís Estrellado + Clavo + Canela + Caramelo', price: 5500 },
+              { name: 'El Norteño', desc: 'Menta + Limón + Hierbabuena + Sábila', price: 5500 },
+              { name: 'Mojito Pasión', desc: 'Menta + Maracuyá + Frambuesa + Limón', price: 5500 },
+              { name: 'Mojito Barbie', desc: 'Tutifruti + Cereza + Frambuesa', price: 5500 },
+              { name: 'Mojito Inca Coya', desc: 'Menta + Piña + Maracuyá + Limón + Jengibre', price: 5500 },
+              { name: 'Mojito Cobre Loa', desc: 'Naranja + Cola e Mono Sin Alcohol + Limón + Canela + Anís Estrellado', price: 5500 },
+              { name: 'Mojito Chileno', desc: 'Cola e Mono Sin Alcohol + Anís + Canela + Limón', price: 5500 },
+              { name: 'Mojito Tropical', desc: 'Menta + Piña + Mango + Maracuyá + Tutifruti', price: 5500 },
+              { name: 'Mojito Maracuyá Primavera', desc: 'Menta + Maracuyá + Limón + Flor de Jamaica + Soda', price: 5500 },
+              { name: 'Mojito Enamorado', desc: 'Menta + Canela + Cola e Mono Sin Alcohol + Frutos del Bosque', price: 5500 },
+              { name: 'Mojito Coco-Loco', desc: 'Menta + Coco + Limón + Piña + Soda', price: 5500 },
+              { name: 'Mojito La Locura del Sabor', desc: 'Berries + Frutos del Bosque + Caramelo + Almendra + Cola e Mono Sin Alcohol', price: 5500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'cafe_frozen',
+        emoji: '☕',
+        name: 'Café Frozen',
+        title: 'Café Frozen',
+        image: 'img/banner_cafe_frozen.jpg',
+        thumb: 'img/thumb_cafe_frozen.jpg',
+        bannerMaxHeight: '520px',
+        bannerFit: 'contain',
+        subcategories: [
+          {
+            name: 'Café Frozen Cremoso — $5.500',
+            items: [
+              { name: 'Café Frozen Latte Vainilla', desc: 'Café, Leche Evaporada, Vainilla, Caramelo y Hielo.', price: 5500 },
+              { name: 'Café Frozen Macchiato', desc: 'Espreso, Leche Condensada, Canela, Nuez Moscada, Leche Líquida y Hielo.', price: 5500 },
+              { name: 'Café Frozen Moca', desc: 'Espreso, Chocolate, Leche Evaporada, Crema de Leche y Hielo.', price: 5500 },
+              { name: 'Café Frozen Oreo', desc: 'Café con Leche, Leche Condensada, Chocolate Oreo, Lluvia de Chocolate, Chocolate Líquido, Chantilly y Hielo.', price: 5500 },
+              { name: 'Café Frozen Coco Nutella', desc: 'Café Espresso, Coco Rallado, Coco Líquido, Nutella, Vainilla, Leche Evaporada y Hielo.', price: 5500 },
+              { name: 'Café Frozen Irlandés', desc: 'Espreso Doble, Leche Condensada, Evaporada, Irlandés Fuerte Esencia, Crema Chantilly y Hielo.', price: 5500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'limonadas_frozen',
+        emoji: '🍋',
+        name: 'Limonadas Frozen',
+        title: 'Limonadas Frozen',
+        image: 'img/banner_limonadas_frozen.jpg',
+        thumb: 'img/thumb_limonadas_frozen.jpg',
+        bannerMaxHeight: '520px',
+        bannerFit: 'contain',
+        subcategories: [
+          {
+            name: 'Limonadas Frozen Sin Alcohol — $5.500',
+            items: [
+              { name: 'Limonada Frozen Maracuyá', desc: 'Con Leche Condensada y un Toque Ligero de Jengibre.', price: 5500 },
+              { name: 'Limonada Frozen Mango', desc: 'Con Leche Condensada y Menta.', price: 5500 },
+              { name: 'Limonada Frozen Frutilla', desc: 'Con Manjar, Jengibre y Menta.', price: 5500 },
+              { name: 'Limonada Frozen Coco', desc: 'Con Leche Condensada, Menta y Vainilla.', price: 5500 },
+              { name: 'Limonada Frozen de la Casa', desc: 'Chancaca, Maracuyá, Piña, Jengibre, Menta, Café y Leche Condensada.', price: 5500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'keto',
+        emoji: '🥗',
+        name: 'Keto',
+        title: 'Gastronomía Keto',
+        image: 'img/img_keto.png',
+        subcategories: [
+          {
+            name: 'Arepas Keto',
+            items: [
+              { name: 'Keto Básica', desc: 'Arepa de huevo, lechuga, tomate, 1 proteína (carne/pollo/cerdo), queso blanco, queso amarillo y salsa especial keto.', price: 6500 },
+              { name: 'Keto Loca', desc: 'Arepa de huevo, carne, chicharrón, pollo, salame, jamón, tocino, queso amarillo y queso blanco.', price: 8000 },
+              { name: 'Keto Power', desc: 'Arepa de huevo, lechuga, tomate, carne, pollo, cerdo, tocino, salame, queso amarillo, queso frito, cheddar, salsa keto.', price: 8000 },
+            ]
+          },
+          {
+            name: 'Hamburguesas Keto',
+            items: [
+              { name: 'Keto Power', desc: 'Pan de huevo, lechuga, tomate, proteína a elección (carne/pollo/cerdo), tocino, salame, jamón y queso.', price: 8000 },
+              { name: 'Keto Loca', desc: 'Pan de huevo, aguacate, mayonesa, queso blanco frito, proteína a elección (carne/pollo/cerdo).', price: 10000 },
+            ]
+          },
+          {
+            name: 'Shawarma Keto',
+            items: [
+              { name: 'Shawarma Keto', desc: 'Pan de huevo árabe, proteína a elección (carne/pollo/cerdo), lechuga, tomate, pepinillo, vianesa, huevo, jamón y queso.', price: 11000 },
+            ]
+          },
+          {
+            name: 'Empanada Keto',
+            items: [
+              { name: 'Empanada Keto', desc: '2 contornos a su elección: jamón, queso, pollo, carne, tocino, salame, pepperoni, palta, vienesa y plátano frito.', price: 2500 },
+            ]
+          }
+        ]
+      },
+      {
+        id: 'kids',
+        emoji: '👶',
+        name: 'Kids',
+        title: 'Menú Silron Kids',
+        image: 'img/img_kids.png',
+        subcategories: [
+          {
+            name: 'Menú Kids',
+            items: [
+              { name: 'Silron Kids', desc: 'Incluye: Nuggets, Papas Fritas, Postre Kids, Sorpresa + Jugo.', price: 5000 },
+            ]
+          }
+        ]
+      }
+    ];
+
+    // ═══════════════════════════════════════════════════
+    // RENDER MENU TABS & CATEGORY GRID
+    // ═══════════════════════════════════════════════════
+    function formatPrice(val) {
+      return '$' + val.toLocaleString('es-CL');
+    }
+
+    function renderMenuCategoryGrid() {
+      const grid = document.getElementById('menuCatGrid');
+      grid.innerHTML = menuCategories.map(cat => `
+        <div class="cat-card" onclick="openMenuTab('${cat.id}')" tabindex="0" role="button" id="cat-${cat.id}">
+          ${(cat.thumb || cat.image) ? `<img src="${cat.thumb || cat.image}" class="cat-emoji" alt="${cat.name}">` : `<span class="cat-emoji">${cat.emoji}</span>`}
+          <span class="cat-name">${cat.name}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderMenuTabs() {
+      const wrapper = document.getElementById('menuDetails');
+      wrapper.innerHTML = menuCategories.map(cat => {
+        let itemsHtml = '';
+        if (cat.image) {
+          itemsHtml += `<img src="${cat.image}" alt="${cat.name}" style="display: block; margin: 0 auto 1.5rem auto; width: 100%; max-width: 600px; max-height: ${cat.bannerMaxHeight || '250px'}; object-fit: ${cat.bannerFit || 'cover'}; object-position: ${cat.id === 'proteinas' ? 'top' : 'center'}; border-radius: 15px; border: 4px solid var(--dark);">`;
+        }
+        cat.subcategories.forEach(sub => {
+          itemsHtml += `<div class="menu-subcategory">${sub.name}</div>`;
+          sub.items.forEach(item => {
+            itemsHtml += `
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <span class="menu-item-name">${item.name}</span>
+                  ${item.desc ? `<p class="menu-item-desc">${item.desc}</p>` : ''}
+                </div>
+                <div class="menu-item-variants">
+                  <div class="menu-variant">
+                    <span class="variant-name"></span>
+                    <span class="variant-price">${formatPrice(item.price)}</span>
+                    
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+        });
+        return `
+          <div class="menu-tab" id="tab-${cat.id}">
+            <h3 class="tab-title">${cat.title}</h3>
+            <div class="menu-items-list">
+              ${itemsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ═══════════════════════════════════════════════════
+    // MENU TAB SWITCHING
+    // ═══════════════════════════════════════════════════
+    let currentTab = null;
+
+    function openMenuTab(id) {
+      const wrapper = document.getElementById('menuDetails');
+      const tabs = wrapper.querySelectorAll('.menu-tab');
+      const cats = document.querySelectorAll('.cat-card');
+
+      cats.forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById('cat-' + id);
+      if (activeCard) activeCard.classList.add('active');
+
+      if (currentTab === id) {
+        wrapper.classList.remove('open');
+        currentTab = null;
+        cats.forEach(c => c.classList.remove('active'));
+        return;
+      }
+
+      tabs.forEach(t => t.classList.remove('active'));
+      const target = document.getElementById('tab-' + id);
+      if (target) {
+        target.classList.add('active');
+        wrapper.classList.add('open');
+        currentTab = id;
+        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // ═══════════════════════════════════════════════════
+    // CART SYSTEM
+    // ═══════════════════════════════════════════════════
+    let cart = [];
+    let pendingCartItem = null;
+    const contornosList = [
+      'Carne Mechada', 'Pollo Mechado', 'Queso Amarillo', 'Queso Blanco',
+      'Queso de Mano', 'Jamón', 'Caraotas', 'Aguacate',
+      'Tajadas', 'Perico', 'Ensalada de Gallina', 'Chicharrón'
+    ];
+
+    function addToCart(name, variant, price) {
+      let max = 0;
+      let customList = null;
+      if (name === 'Arepa 1 Contorno' || name === 'Queso Amarillo') max = 1;
+      else if (name === 'Arepa 2 Contornos' || name === 'Empanada Keto') {
+        max = 2;
+        if (name === 'Empanada Keto') {
+          customList = ['Jamón', 'Queso', 'Pollo', 'Carne', 'Tocino', 'Salame', 'Pepperoni', 'Palta', 'Vienesa', 'Plátano frito'];
+        }
+      }
+      else if (name === 'Empanada Operada') max = 5;
+
+      if (max > 0) {
+        openContornosModal(name, variant, price, max, customList);
+        return;
+      }
+
+      const existing = cart.find(i => i.name === name && i.variant === variant);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ name, variant, price, quantity: 1 });
+      }
+      renderCart();
+      // Quick animation feedback
+      const badge = document.getElementById('cartBadge');
+      badge.style.transform = 'scale(1.4)';
+      setTimeout(() => badge.style.transform = 'scale(1)', 200);
+    }
+
+    function openContornosModal(name, variant, price, maxSelections, customList = null) {
+      pendingCartItem = { name, variant, price, max: maxSelections };
+      document.getElementById('contornosModalTitle').innerText = `Elige ${maxSelections} contorno${maxSelections > 1 ? 's' : ''}`;
+      document.getElementById('contornosModalSubtitle').innerText = `Puedes seleccionar hasta ${maxSelections} opción${maxSelections > 1 ? 'es' : ''}.`;
+
+      const grid = document.getElementById('contornosGrid');
+      grid.innerHTML = '';
+      const listToUse = customList || contornosList;
+      listToUse.forEach(c => {
+        grid.innerHTML += `
+          <label class="contorno-item">
+            <input type="checkbox" name="contorno" value="${c}" onchange="checkContornosLimit()">
+            ${c}
+          </label>
+        `;
+      });
+      document.getElementById('contornosModalOverlay').classList.add('open');
+    }
+
+    function closeContornosModal() {
+      document.getElementById('contornosModalOverlay').classList.remove('open');
+      pendingCartItem = null;
+    }
+
+    function checkContornosLimit() {
+      const max = pendingCartItem.max;
+      const checkboxes = document.querySelectorAll('input[name="contorno"]');
+      const checked = document.querySelectorAll('input[name="contorno"]:checked');
+
+      if (checked.length >= max) {
+        checkboxes.forEach(cb => {
+          if (!cb.checked) {
+            cb.disabled = true;
+            cb.parentElement.classList.add('disabled');
+          }
+        });
+      } else {
+        checkboxes.forEach(cb => {
+          cb.disabled = false;
+          cb.parentElement.classList.remove('disabled');
+        });
+      }
+    }
+
+    function confirmContornos() {
+      const checked = Array.from(document.querySelectorAll('input[name="contorno"]:checked')).map(cb => cb.value);
+      if (checked.length === 0) {
+        return alert(`Debes elegir al menos 1 contorno.`);
+      }
+
+      const combinedName = `${pendingCartItem.name} (${checked.join(', ')})`;
+
+      const existing = cart.find(i => i.name === combinedName && i.variant === pendingCartItem.variant);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ name: combinedName, variant: pendingCartItem.variant, price: pendingCartItem.price, quantity: 1 });
+      }
+      renderCart();
+      const badge = document.getElementById('cartBadge');
+      badge.style.transform = 'scale(1.4)';
+      setTimeout(() => badge.style.transform = 'scale(1)', 200);
+
+      closeContornosModal();
+    }
+
+    function removeFromCart(index) {
+      cart[index].quantity--;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      renderCart();
+    }
+
+    function addMore(index) {
+      cart[index].quantity++;
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItems');
+      const badge = document.getElementById('cartBadge');
+      const totalEl = document.getElementById('cartTotal');
+
+      const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+      const totalPrice = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+
+      badge.textContent = totalItems;
+      totalEl.textContent = formatPrice(totalPrice);
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="color:var(--parch);text-align:center;opacity:.6;">Tu pedido está vacío</p>';
+        return;
+      }
+      container.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <span class="cart-item-title">${item.name}</span>
+            ${item.variant ? `<span class="cart-item-variant">${item.variant}</span>` : ''}
+            <span class="cart-item-price">${formatPrice(item.price)} × ${item.quantity}</span>
+          </div>
+          <div class="cart-item-controls">
+            <button onclick="removeFromCart(${idx})">−</button>
+            <span style="color:var(--cream);min-width:20px;text-align:center;">${item.quantity}</span>
+            <button onclick="addMore(${idx})">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCart() {
+      document.getElementById('cartSidebar').classList.toggle('open');
+    }
+
+    let currentCheckoutMode = 'whatsapp';
+
+    function openCheckoutModal(mode) {
+      if (cart.length === 0) return alert('Tu pedido está vacío');
+      currentCheckoutMode = mode;
+      document.getElementById('checkoutModalOverlay').classList.add('open');
+      document.getElementById('cartSidebar').classList.remove('open');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModalOverlay').classList.remove('open');
+    }
+
+    function handleDeliveryChange() {
+      const type = document.getElementById('custDeliveryType').value;
+      const addrGroup = document.getElementById('addressGroup');
+      const tableGroup = document.getElementById('tableGroup');
+
+      addrGroup.style.display = 'none';
+      tableGroup.style.display = 'none';
+
+      if (type === 'Dirección') {
+        addrGroup.style.display = 'flex';
+      } else if (type === 'Consumo en Local') {
+        tableGroup.style.display = 'flex';
+      }
+    }
+
+    function confirmCheckout() {
+      const name = document.getElementById('custName').value.trim();
+      const type = document.getElementById('custDeliveryType').value;
+      const address = document.getElementById('custAddress').value.trim();
+      const table = document.getElementById('custTable').value.trim();
+      const payment = document.getElementById('custPayment').value;
+      const comments = document.getElementById('custComments').value.trim();
+
+      if (!name) return alert('Por favor, ingresa tu nombre.');
+      if (type === 'Dirección' && !address) return alert('Por favor, ingresa tu dirección.');
+      if (type === 'Consumo en Local' && !table) return alert('Por favor, ingresa tu número de mesa.');
+
+      const orderDetails = {
+        customerName: name,
+        deliveryType: type,
+        addressOrTable: type === 'Dirección' ? address : (type === 'Consumo en Local' ? 'Mesa ' + table : 'N/A'),
+        paymentMethod: payment,
+        comments: comments
+      };
+
+      processWhatsAppOrder(orderDetails);
+      closeCheckoutModal();
+    }
+
+    function processWhatsAppOrder(details) {
+      const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      let msg = '🔥 *Nuevo Pedido — Al-Toque Silron* 🔥\n\n';
+      msg += `👤 *Cliente:* ${details.customerName}\n`;
+      msg += `🚚 *Entrega:* ${details.deliveryType}\n`;
+      if (details.deliveryType !== 'Retirar en Local') {
+        msg += `📍 *Ubicación:* ${details.addressOrTable}\n`;
+      }
+      msg += `💳 *Pago:* ${details.paymentMethod}\n`;
+      if (details.comments) {
+        msg += `💬 *Comentarios:* ${details.comments}\n`;
+      }
+      msg += `\n*Detalle:*\n`;
+      cart.forEach(i => {
+        let itemName = i.name;
+        if (itemName.includes('(') && itemName.includes(')')) {
+          itemName = itemName.replace('(', '(*').replace(')', '*)');
+        }
+        msg += `• ${i.quantity}x ${itemName}`;
+        if (i.variant) msg += ` (${i.variant})`;
+        msg += ` — ${formatPrice(i.price * i.quantity)}\n`;
+      });
+      if (details.deliveryType === 'Dirección') {
+        msg += `\n💰 *Total: ${formatPrice(total)}* (más costo de envío dependiendo de la ubicación)`;
+      } else {
+        msg += `\n💰 *Total: ${formatPrice(total)}*`;
+      }
+      window.open('https://wa.me/56926181089?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // ═══════════════════════════════════════════════════
+    // NAV, SCROLL REVEAL, MOBILE MENU
+    // ═══════════════════════════════════════════════════
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('solid', window.scrollY > 60);
+    });
+
+    // Scroll Reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ═══════════════════════════════════════════════════
+    // INITIALIZE
+    // ═══════════════════════════════════════════════════
+    renderMenuCategoryGrid();
+    renderMenuTabs();
+    renderCart();
+  </script>
+</body>
+
+</html>
